@@ -1,4 +1,4 @@
-FROM golang:1.16.4 as builder
+FROM --platform=amd64 golang:1.16.4 AS builder
 
 ARG CLOUDFLARED_VERSION=2021.5.6
 ARG TARGET_GOOS=linux
@@ -21,7 +21,7 @@ RUN apk update && apk add --no-cache ca-certificates
 
 FROM scratch
 
-COPY --from=0 /go/src/github.com/cloudflare/cloudflared/cloudflared /cloudflared
+COPY --from=builder /go/src/github.com/cloudflare/cloudflared/cloudflared /cloudflared
 COPY --from=1 /etc/ssl/certs /etc/ssl/certs
 
 ENTRYPOINT ["cloudflared", "--no-autoupdate"]
