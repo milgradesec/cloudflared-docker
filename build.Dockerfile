@@ -1,8 +1,8 @@
+FROM golang:1.16.4 as builder
+
 ARG CLOUDFLARED_VERSION=2021.5.6
 ARG TARGET_GOOS=linux
 ARG TARGET_GOARCH=arm64
-
-FROM golang:1.16.4 as builder
 
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
