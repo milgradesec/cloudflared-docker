@@ -3,20 +3,17 @@ FROM --platform=amd64 golang:1.16.4 AS builder
 ARG TARGETPLATFORM
 ARG TARGETOS
 ARG TARGETARCH
-ARG TARGETVARIANT
 
 ARG CLOUDFLARED_VERSION=2021.5.6
 
 ENV GO111MODULE=on \
-    CGO_ENABLED=0 \
-    GOOS=linux \
-    GOARCH=arm64
+    CGO_ENABLED=0
 
 WORKDIR /go/src/github.com/cloudflare/cloudflared/
 
 RUN git clone --branch ${CLOUDFLARED_VERSION} --single-branch --depth 1 https://github.com/cloudflare/cloudflared.git && \
     cd cloudflared && \
-    go build -v -ldflags "-w -s -X 'main.Version=${CLOUDFLARED_VERSION}'" github.com/cloudflare/cloudflared/cmd/cloudflared
+    GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -ldflags "-w -s -X 'main.Version=${CLOUDFLARED_VERSION}'" github.com/cloudflare/cloudflared/cmd/cloudflared
 
 FROM alpine:3.13
 
