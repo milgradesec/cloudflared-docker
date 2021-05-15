@@ -27,5 +27,5 @@ FROM scratch
 COPY --from=builder /go/src/github.com/cloudflare/cloudflared/cloudflared /cloudflared
 COPY --from=1 /etc/ssl/certs /etc/ssl/certs
 
-ENTRYPOINT ["cloudflared", "--no-autoupdate"]
+ENTRYPOINT ["/cloudflared", "--no-autoupdate"]
 CMD ["version"]
