@@ -12,9 +12,9 @@ ENV GO111MODULE=on \
 
 WORKDIR /go/src/github.com/cloudflare/cloudflared/
 
-RUN git clone --branch 2021.5.6 https://github.com/cloudflare/cloudflared
-
-RUN make cloudflared
+RUN git clone --branch 2021.5.6 https://github.com/cloudflare/cloudflared && \
+    cd cloudflared && \
+    make cloudflared
 
 FROM gcr.io/distroless/base-debian10:nonroot
 
