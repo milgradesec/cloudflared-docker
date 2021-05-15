@@ -1,6 +1,6 @@
-# use a builder image for building cloudflare
-ARG TARGET_GOOS
-ARG TARGET_GOARCH
+ARG CLOUDFLARED_VERSION=2021.5.6
+ARG TARGET_GOOS=linux
+ARG TARGET_GOARCH=arm64
 
 FROM golang:1.16.4 as builder
 
@@ -11,8 +11,7 @@ ENV GO111MODULE=on \
 
 WORKDIR /go/src/github.com/cloudflare/cloudflared/
 
-# copy our sources into the builder image
-COPY . .
+RUN git clone --branch ${TAG} --single-branch --depth 1 https://github.com/cloudflare/cloudflared.git
 
 # compile cloudflared
 RUN make cloudflared
