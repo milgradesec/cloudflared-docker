@@ -6,13 +6,12 @@ ARG TARGET_GOARCH=arm64
 
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
-    CLOUDFLARED_VERSION=${CLOUDFLARED_VERSION} \
     TARGET_GOOS=${TARGET_GOOS} \
     TARGET_GOARCH=${TARGET_GOARCH}
 
 WORKDIR /go/src/github.com/cloudflare/cloudflared/
 
-RUN git clone --branch 2021.5.6 https://github.com/cloudflare/cloudflared && \
+RUN git clone --branch ${CLOUDFLARED_VERSION} https://github.com/cloudflare/cloudflared && \
     cd cloudflared && \
     make cloudflared
 
