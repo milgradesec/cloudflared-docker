@@ -15,14 +15,11 @@ RUN git clone --branch ${CLOUDFLARED_VERSION} --single-branch --depth 1 https://
     cd cloudflared && \
     GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -ldflags "-w -s -X 'main.Version=${CLOUDFLARED_VERSION}'" github.com/cloudflare/cloudflared/cmd/cloudflared
 
-FROM alpine:3.13
+FROM gcr.io/distroless/base-debian10:nonroot
 
-RUN apk update && apk add --no-cache ca-certificates
+COPY --from=builder --chown=nonroot /go/src/github.com/cloudflare/cloudflared/cloudflared /usr/local/bin/
 
-FROM scratch
+USER nonroot
 
-COPY --from=builder /go/src/github.com/cloudflare/cloudflared/cloudflared /cloudflared
-COPY --from=1 /etc/ssl/certs /etc/ssl/certs
-
-ENTRYPOINT ["/cloudflared", "--no-autoupdate"]
+ENTRYPOINT ["cloudflared", "--no-autoupdate"]
 CMD ["version"]
