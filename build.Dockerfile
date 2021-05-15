@@ -17,7 +17,7 @@ RUN git clone --branch ${CLOUDFLARED_VERSION} --single-branch --depth 1 https://
 
 FROM alpine:3.13
 
-RUN apk update && apk add --no-cache ca-certificates 
+RUN apk update && apk add --no-cache ca-certificates
 
 FROM scratch
 
