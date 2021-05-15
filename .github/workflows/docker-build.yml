@@ -20,4 +20,4 @@ jobs:
 
       - name: Build and Push
         run: |
-          docker buildx build -f build.Dockerfile --platform linux/arm64 --build-arg TARGET_GOOS=linux --build-arg TARGET_GOARCH=arm64 . --tag milgradesec/cloudflared:latest --push
+          docker buildx build -f build.Dockerfile --platform linux/arm64 . --tag milgradesec/cloudflared:latest --push
