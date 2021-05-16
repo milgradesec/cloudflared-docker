@@ -13,7 +13,7 @@ WORKDIR /go/src/github.com/cloudflare/cloudflared/
 
 RUN git clone --branch ${CLOUDFLARED_VERSION} --single-branch --depth 1 https://github.com/cloudflare/cloudflared.git && \
     cd cloudflared && \
-    GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -ldflags "-w -s -X 'main.Version=${CLOUDFLARED_VERSION}'" github.com/cloudflare/cloudflared/cmd/cloudflared
+    GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -mod=vendor -ldflags "-w -s -X 'main.Version=${CLOUDFLARED_VERSION}'" github.com/cloudflare/cloudflared/cmd/cloudflared
 
 FROM alpine:3.13
 
