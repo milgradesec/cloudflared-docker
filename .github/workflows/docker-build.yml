@@ -15,9 +15,9 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      - name: Login to Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build and Push
         run: |
-          docker buildx build -f build.Dockerfile --platform linux/arm64 . --tag milgradesec/cloudflared:2021.5.10 --tag milgradesec/cloudflared:latest --push
+          docker buildx build -f build.Dockerfile --platform linux/arm64 . --tag ghcr.io/milgradesec/cloudflared:2021.5.10 --tag ghcr.io/milgradesec/cloudflared:latest --push
