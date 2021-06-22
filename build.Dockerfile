@@ -17,14 +17,15 @@ RUN git clone --branch ${CLOUDFLARED_VERSION} --single-branch --depth 1 https://
 
 FROM alpine:3.14.0
 
-RUN apk --update --no-cache --available add \
+RUN apk --update --no-cache add \
     ca-certificates \
     libressl \
     shadow \
-    tzdata \
-    && addgroup -g 1000 cloudflared \
+    tzdata
+# && rm -rf /tmp/* /var/cache/apk/*
+
+RUN addgroup -g 1000 cloudflared \
     && adduser -u 1000 -G cloudflared -s /sbin/nologin -D cloudflared
-    # && rm -rf /tmp/* /var/cache/apk/*
 
 COPY --from=builder /go/src/github.com/cloudflare/cloudflared/cloudflared /usr/local/bin/
 
