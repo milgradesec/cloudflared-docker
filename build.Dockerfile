@@ -4,7 +4,7 @@ ARG TARGETPLATFORM
 ARG TARGETOS
 ARG TARGETARCH
 
-ARG CLOUDFLARED_VERSION=2021.5.10
+ARG CLOUDFLARED_VERSION=2021.6.0
 
 ENV GO111MODULE=on \
     CGO_ENABLED=0
@@ -15,7 +15,7 @@ RUN git clone --branch ${CLOUDFLARED_VERSION} --single-branch --depth 1 https://
     cd cloudflared && \
     GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -mod=vendor -ldflags "-w -s -X 'main.Version=${CLOUDFLARED_VERSION}'" github.com/cloudflare/cloudflared/cmd/cloudflared
 
-FROM alpine:3.13
+FROM alpine:3.14
 
 RUN apk --update --no-cache add \
     ca-certificates \
