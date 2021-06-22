@@ -19,7 +19,6 @@ FROM alpine:3.14.0
 
 RUN apk --update --no-cache add \
     ca-certificates \
-    libressl \
     shadow \
     tzdata
 # && rm -rf /tmp/* /var/cache/apk/*
