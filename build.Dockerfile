@@ -20,10 +20,8 @@ FROM alpine:3.14.0
 RUN apk --update --no-cache add \
     ca-certificates \
     shadow \
-    tzdata
-# && rm -rf /tmp/* /var/cache/apk/*
-
-RUN addgroup -g 1000 cloudflared \
+    tzdata \
+    && addgroup -g 1000 cloudflared \
     && adduser -u 1000 -G cloudflared -s /sbin/nologin -D cloudflared
 
 COPY --from=builder /go/src/github.com/cloudflare/cloudflared/cloudflared /usr/local/bin/
