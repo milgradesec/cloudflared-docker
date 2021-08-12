@@ -19,5 +19,4 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build and Push
-        run: |
-          docker buildx build -f build.Dockerfile --platform linux/arm64 . --tag ghcr.io/milgradesec/cloudflared:2021.8.2 --tag ghcr.io/milgradesec/cloudflared:latest --push
+        run: make
