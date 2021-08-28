@@ -15,7 +15,7 @@ RUN git clone --branch ${CLOUDFLARED_VERSION} --single-branch --depth 1 https://
     cd cloudflared && \
     GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -mod=vendor -ldflags "-w -s -X 'main.Version=${CLOUDFLARED_VERSION}'" github.com/cloudflare/cloudflared/cmd/cloudflared
 
-FROM alpine:3.14.1
+FROM alpine:3.14.2
 
 RUN apk --update --no-cache add \
     ca-certificates \
