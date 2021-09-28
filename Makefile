@@ -1,4 +1,4 @@
-VERSION:=2021.9.1
+VERSION:=2021.9.2
 
 all: 
 	docker buildx build . -f build.Dockerfile \
