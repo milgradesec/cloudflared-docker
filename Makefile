@@ -1,4 +1,4 @@
-VERSION:=2021.9.2
+VERSION:=2021.10.0
 
 all: 
 	docker --log-level=debug buildx build . \
