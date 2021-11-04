@@ -14,6 +14,12 @@ Get from Github Container Registry:
 docker pull ghcr.io/milgradesec/cloudflared:latest
 ```
 
+Get from Docker Hub:
+
+```shell
+docker pull milgradesec/cloudflared:latest
+```
+
 ## About
 
 The image is slightly modified to run as limited user instead of root.
