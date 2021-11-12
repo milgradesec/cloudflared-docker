@@ -1,6 +1,6 @@
 # 🐳 Cloudflare Tunnel for arm64
 
-[![Docker Build and Push](https://github.com/milgradesec/cloudflared-docker-arm64/actions/workflows/docker-build.yml/badge.svg)](https://github.com/milgradesec/cloudflared-docker-arm64/actions/workflows/docker-build.yml)
+[![Docker CI](https://github.com/milgradesec/cloudflared-docker-arm64/actions/workflows/ci.yml/badge.svg)](https://github.com/milgradesec/cloudflared-docker-arm64/actions/workflows/ci.yml)
 
 ## Why
 
