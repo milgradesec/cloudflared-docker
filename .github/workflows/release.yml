@@ -1,4 +1,4 @@
-name: Docker Build and Push
+name: Docker Release
 
 on:
   push:
@@ -32,4 +32,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push
-        run: make
+        run: make docker-release
