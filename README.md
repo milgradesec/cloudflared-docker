@@ -1,4 +1,4 @@
-# 🐳 Cloudflare Tunnel for arm64
+# Cloudflare Tunnel Docker Image for ARM64
 
 [![Docker CI](https://github.com/milgradesec/cloudflared-docker-arm64/actions/workflows/ci.yml/badge.svg)](https://github.com/milgradesec/cloudflared-docker-arm64/actions/workflows/ci.yml)
 
