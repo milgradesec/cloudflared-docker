@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "build.Dockerfile"
+      - "Makefile"
 
 jobs:
   build:
