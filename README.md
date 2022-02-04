@@ -1,7 +1,6 @@
 # Cloudflare Tunnel Docker Image for ARM64
 
-[![Docker CI](https://github.com/milgradesec/cloudflared-docker-arm64/actions/workflows/ci.yml/badge.svg)](https://github.com/milgradesec/cloudflared-docker-arm64/actions/workflows/ci.yml)
-[![Docker Release](https://github.com/milgradesec/cloudflared-docker/actions/workflows/release.yml/badge.svg)](https://github.com/milgradesec/cloudflared-docker/actions/workflows/release.yml)
+[![Release](https://github.com/milgradesec/cloudflared-docker/actions/workflows/release.yml/badge.svg)](https://github.com/milgradesec/cloudflared-docker/actions/workflows/release.yml)
 
 ## Why
 
