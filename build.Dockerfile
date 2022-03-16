@@ -1,4 +1,4 @@
-FROM --platform=amd64 golang:1.18rc1 AS builder
+FROM --platform=amd64 golang:1.18.0 AS builder
 
 ARG TARGETPLATFORM
 ARG TARGETOS
