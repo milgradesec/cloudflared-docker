@@ -27,6 +27,4 @@ RUN apk --update --no-cache add \
 COPY --from=builder /go/src/github.com/cloudflare/cloudflared/cloudflared /usr/local/bin/
 
 USER cloudflared
-
 ENTRYPOINT ["/usr/local/bin/cloudflared", "--no-autoupdate"]
-CMD ["version"]
