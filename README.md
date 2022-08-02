@@ -1,4 +1,4 @@
-# Cloudflare Tunnel Docker Image for ARM64
+# Multi-Arch Cloudflare Tunnel Docker Image
 
 [![Release](https://github.com/milgradesec/cloudflared-docker/actions/workflows/release.yml/badge.svg)](https://github.com/milgradesec/cloudflared-docker/actions/workflows/release.yml)
 
