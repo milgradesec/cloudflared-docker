@@ -1,4 +1,4 @@
-VERSION := 2022.10.3
+VERSION := 2022.11.0
 
 .PHONY: all
 all: docker-build
